@@ -8,18 +8,37 @@ for (let i=0; i < 16; i++){
     pixel = document.createElement("div");
     pixel.className = "pixel";  
     container.append(pixel);
-    // console.log(i)
-   
 }
 
+// some bug with mouse event
+// read more about mouse event
 container.addEventListener("mouseover", (e) =>{
-    // console.log("mouse over!") 
-    // can also add a new class for color changes
-    // e.target.setAttribute('style','color:red;background-color:yellow');
-    e.target.classList.add('colorChange');
-    // console.log(e.target)
+    console.log("mouseOver")
+    if (e.target.className === "pixel"){
+        const randomColor = getRandomColor()
+        e.target.style.backgroundColor = randomColor;
+        
+    }
+
+    let getPixel = document.querySelector(".pixel")
+    getPixel.style.opacity = 1;
+
 });
 
+// container.addEventListener("mouseover", () =>{
+//         // gets the current opacity value of the pixel
+
+        
+//         let getPixel = document.querySelector(".pixel")
+//         // let pixelOpacity = window.getComputedStyle(getPixel).getPropertyValue('opacity');
+//         // pixelOpacity += 0.1;
+//         // getPixel.style.opacity = pixelOpacity
+
+//         // getPixel.style.opacity = '0.1';
+//         // opacity = parseFloat(getPixel.style.opacity);
+//         // getPixel.style.opacity = opacity + 0.1;
+//         getPixel.style.opacity = 1;
+// });
 
 document.querySelector(".button").addEventListener("click", () => {
    
@@ -60,10 +79,16 @@ document.querySelector(".button").addEventListener("click", () => {
     
 });
 
+function getRandomColor() {
+    let r = Math.floor(Math.random() * 256); // Random between 0-255
+    let g = Math.floor(Math.random() * 256); // Random between 0-255
+    let b = Math.floor(Math.random() * 256); // Random between 0-255
+    return 'rgb(' + r + ',' + g + ',' + b + ')';
+}
 
 
 
 
 
 
-
+ 

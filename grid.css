@@ -49,11 +49,6 @@ button:active {
     justify-content: center;
     align-items: center;
     border: 1px solid black;
-    
+    opacity: 0.1;
 }
 
-/* width: 25%;       Each item takes 1/4 of the row (for 4x4 layout) */
-
-.colorChange{
-    background-color: yellow;
-}
