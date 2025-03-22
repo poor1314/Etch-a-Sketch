@@ -1,0 +1,18 @@
+1. Create the pixel div using js
+2. Be careful with borders and margins, 
+as they can adjust the size of the squares!
+
+3. when people open the website, there should be a default grid 16 x 16
+
+
+1. Create grid based on input, partially done
+
+// javascript have to work with css to create 
+// the grid with correct quadrant based on input
+// the math is   
+/*33% for 3 x 3
+100% / 3 = 33.3 */
+
+
+2. work on: when input a number
+grid size change
