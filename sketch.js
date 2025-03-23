@@ -1,6 +1,3 @@
-
-
-
 let container = document.querySelector(".container");
 let slider = document.querySelector("#myRange");
 
@@ -13,9 +10,6 @@ function createDefaultGrid(){
     }
 }
 createDefaultGrid();
-
-
-
 
 function sliderNumber(e){
     let getText = document.querySelector(".text")
@@ -66,12 +60,13 @@ container.addEventListener('mouseout', function(e){
 })
 
 // two events triggers the same 
-// slider.addEventListener("click",newGrid)
-// slider.addEventListener("mouseover",newGrid)
-["click", "mouseover"].forEach(e => slider.addEventListener(e, newGrid)); 
+slider.addEventListener("click", newGrid)
+slider.addEventListener("mouseover",newGrid)
+// ["click", "mouseover"].forEach(() => 
+//     slider.addEventListener(newGrid)
+// );
 
-
-slider.addEventListener("pointermove",sliderNumber)
+slider.addEventListener("pointermove", sliderNumber)
 slider.addEventListener("click",sliderNumber)
 // ["pointermove", "click"].forEach(e => {
 //     slider.addEventListener(e, sliderNumber);
