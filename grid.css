@@ -3,46 +3,39 @@ html, body {
     margin: 0;
 }
 
+/* Makes everything align in a column */
 body {
+    display: flex;
+    flex-direction: column; /* Stack elements */
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Adds space between elements */
+}
+
+.slider-container {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.input-group{
-    display:flex;
+    width: 100%;
+    background-color: #f4f4f4;
     padding: 10px;
-    font-size: 16px;
-    display:flex;
-    margin-right: 50px;
 }
 
-.button {
-    background-color: #0066ffa2; /* Blue color */
-    color: rgb(239, 239, 239); /* White text */
+.slider {
+    width: 300px;
 }
-
-button:active {
-    transform: scale(0.95); /* Slightly shrinks the button */
-}
-
 
 .container {
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping into multiple rows */
-    width: 500px;   /* Fixed container width */
-    height: 500px;  /* Fixed container height */
+    flex-wrap: wrap;
+    width: 500px;
+    height: 500px;
     border: 2px solid black;
 }
-  
+
 .pixel {
-
-    /*in order to have a flexbable grid */
-    /*you need to adjust flex & height */
-    /*if you have a 3x3 grid, you need 100/3 = 33.3% */
-    flex: 0 0 25%;  
+    flex: 0 0 25%;
     height: 25%;
-
     box-sizing: border-box;
     background-color: lightblue;
     display: flex;
@@ -52,3 +45,9 @@ button:active {
     opacity: 0.1;
 }
 
+
+.text{
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    justify-content: center;
+}
