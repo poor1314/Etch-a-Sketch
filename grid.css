@@ -19,10 +19,12 @@ body {
     width: 100%;
     background-color: #f4f4f4;
     padding: 10px;
+    
 }
 
 .slider {
     width: 300px;
+    caret-color: transparent;
 }
 
 .container {
@@ -31,6 +33,7 @@ body {
     width: 500px;
     height: 500px;
     border: 2px solid black;
+    caret-color: transparent;
 }
 
 .pixel {
@@ -50,4 +53,5 @@ body {
     font-family: 'Press Start 2P', cursive;
     display: flex;
     justify-content: center;
+    caret-color: transparent;
 }

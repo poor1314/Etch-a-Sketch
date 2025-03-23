@@ -2,4 +2,4 @@ i need to obtain the pixel of each grid
 then add it by 0.3 each time it's selected
 
 
-i assume eventlistener, everytime it gets triggered, it use the pre-assigned value
+1. drag to draw
