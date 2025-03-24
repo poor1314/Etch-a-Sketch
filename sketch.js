@@ -2,8 +2,7 @@ let container = document.querySelector(".container");
 let slider = document.querySelector("#myRange");
 let click = false;
 
-
-// a default grid 16 x 16
+// a default grid 4 x 4
 function createDefaultGrid(){
     for (let i = 0; i < 16; i++){
         let pixel = document.createElement("div");
@@ -13,7 +12,7 @@ function createDefaultGrid(){
 }
 createDefaultGrid();
 
-function sliderNumber(e){
+function updateSliderNumber(e){
     let getText = document.querySelector(".text")
     getText.textContent = `${e.target.value} x ${e.target.value}`;
 }
@@ -25,29 +24,37 @@ function getRandomColor() {
     return 'rgb(' + r + ',' + g + ',' + b + ')';
 }
 
-function newGrid(e){
-    let isNumber = Number(e.target.value);
-    if (Number.isInteger(isNumber) && isNumber >= 1 && isNumber <= 100){
-        // remove whole grid
-        container.replaceChildren(); 
-    
-        const flexValue = 100/isNumber;
-        // if given input is 3, 
-        // Math.pow(3, 2) = 9, correctly represent a 3 x 3 grid correctly
-        for (let i = 0 ; i < Math.pow(isNumber, 2); i++){
-            
-            let pixel = document.createElement("div");
-            pixel.className = "pixel";  
-            pixel.style.flex = `${flexValue}%`
-            pixel.style.height = `${flexValue}%`
-            container.append(pixel);
-        }
+ // remove whole grid
+function clearGrid(){
+    container.replaceChildren(); 
+}
+
+function createGrid(size){
+    const pixelSize = 100/size;
+    // if given input is 3, 
+    // Math.pow(3, 2) = 9, correctly represent a 3 x 3 grid correctly
+    for (let i = 0 ; i < Math.pow(size, 2); i++){
+
+        let pixel = document.createElement("div");
+        pixel.className = "pixel";  
+        pixel.style.flex = `${pixelSize}%`
+        pixel.style.height = `${pixelSize}%`
+        container.append(pixel);
+
+    }
+}
+
+function updateGrid(e){
+    let userSelectedGridSize = Number(e.target.value);
+    if (userSelectedGridSize >= 1 && userSelectedGridSize <= 100){
+        clearGrid();
+        createGrid(userSelectedGridSize);
     }
 }
 
 container.addEventListener('click', function(){ 
-    (click === false ? click = true: click = false)
-    
+
+    click = !click;
     word = document.querySelector("#word");
     if (click === true){
         word.textContent = "stop"
@@ -64,17 +71,13 @@ container.addEventListener('mouseover', function(e){
             // gets css property(opacity) of current target 
             opacityValue = Number(window.getComputedStyle(e.target).getPropertyValue("opacity"))
             e.target.style.backgroundColor =  getRandomColor();
-        
-            // why did incremental only works when i put  opacityValue += 0.1 before  e.target.style.opacity =  opacityValue
-            opacityValue += 0.3;
-            e.target.style.opacity =  opacityValue;  
+            e.target.style.opacity = opacityValue + 0.1;
     }
 })
 
-slider.addEventListener("click", newGrid)
-
-slider.addEventListener("pointermove", sliderNumber)
-slider.addEventListener("click",sliderNumber)
+slider.addEventListener("click", updateGrid)
+slider.addEventListener("pointermove", updateSliderNumber)
+slider.addEventListener("click",updateSliderNumber)
 
 
 
