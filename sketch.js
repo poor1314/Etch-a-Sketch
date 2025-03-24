@@ -45,9 +45,7 @@ function newGrid(e){
     }
 }
 
-
 container.addEventListener('click', function(){ 
-    
     (click === false ? click = true: click = false)
     
     word = document.querySelector("#word");
@@ -59,9 +57,6 @@ container.addEventListener('click', function(){
         word.textContent = "draw"
         word.style.color = "blue"
     } 
-   
-
-    
 })
 
 container.addEventListener('mouseover', function(e){
