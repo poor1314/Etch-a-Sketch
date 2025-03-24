@@ -52,6 +52,17 @@ function updateGrid(e){
     }
 }
 
+function increaseOpacity(e){
+
+    opacityValue = Number(window.getComputedStyle(e.target).getPropertyValue("opacity"))
+    e.target.style.backgroundColor =  getRandomColor();
+    e.target.style.opacity = opacityValue + 0.1;
+
+}
+
+// update the "start" text from "Left Click to draw"
+// to either red for stop
+// or blue for draw
 container.addEventListener('click', function(){ 
 
     click = !click;
@@ -66,12 +77,10 @@ container.addEventListener('click', function(){
     } 
 })
 
+
 container.addEventListener('mouseover', function(e){
     if (click === true && e.target.className === "pixel" ){
-            // gets css property(opacity) of current target 
-            opacityValue = Number(window.getComputedStyle(e.target).getPropertyValue("opacity"))
-            e.target.style.backgroundColor =  getRandomColor();
-            e.target.style.opacity = opacityValue + 0.1;
+            increaseOpacity(e);
     }
 })
 
