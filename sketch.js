@@ -1,5 +1,7 @@
 let container = document.querySelector(".container");
 let slider = document.querySelector("#myRange");
+let click = false;
+
 
 // a default grid 16 x 16
 function createDefaultGrid(){
@@ -44,11 +46,26 @@ function newGrid(e){
 }
 
 
-let mouseIsDown = false;
-container.addEventListener('mousedown', function(){mouseIsDown = true})
-container.addEventListener('mouseup', function(){mouseIsDown = false})
-container.addEventListener('mouseout', function(e){
-    if (mouseIsDown === true && e.target.className === "pixel" ){
+container.addEventListener('click', function(){ 
+    
+    (click === false ? click = true: click = false)
+    
+    word = document.querySelector("#word");
+    if (click === true){
+        word.textContent = "stop"
+        word.style.color = "red"
+    }
+    else{
+        word.textContent = "draw"
+        word.style.color = "blue"
+    } 
+   
+
+    
+})
+
+container.addEventListener('mouseover', function(e){
+    if (click === true && e.target.className === "pixel" ){
             // gets css property(opacity) of current target 
             opacityValue = Number(window.getComputedStyle(e.target).getPropertyValue("opacity"))
             e.target.style.backgroundColor =  getRandomColor();
@@ -71,7 +88,6 @@ slider.addEventListener("click",sliderNumber)
 // ["pointermove", "click"].forEach(e => {
 //     slider.addEventListener(e, sliderNumber);
 // })
-
 
 
 

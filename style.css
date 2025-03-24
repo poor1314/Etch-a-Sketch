@@ -12,14 +12,30 @@ body {
     gap: 20px; /* Adds space between elements */
 }
 
-.slider-container {
+#word{
+    margin-left: 5px;
+    color: blue;
+}
+
+.slider-container{
+    font-family:  cursive;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     background-color: #f4f4f4;
     padding: 10px;
-    
+    caret-color: transparent;
+}
+
+.instruction{
+    font-family:  cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    caret-color: transparent;
 }
 
 .slider {
