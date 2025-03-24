@@ -71,18 +71,11 @@ container.addEventListener('mouseover', function(e){
     }
 })
 
-// two events triggers the same 
 slider.addEventListener("click", newGrid)
-slider.addEventListener("mouseover",newGrid)
-// ["click", "mouseover"].forEach(() => 
-//     slider.addEventListener(newGrid)
-// );
 
 slider.addEventListener("pointermove", sliderNumber)
 slider.addEventListener("click",sliderNumber)
-// ["pointermove", "click"].forEach(e => {
-//     slider.addEventListener(e, sliderNumber);
-// })
+
 
 
 
